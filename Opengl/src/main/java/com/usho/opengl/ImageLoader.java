@@ -2,8 +2,6 @@ package com.usho.opengl;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
-import android.util.LruCache;
 import android.widget.ImageView;
 
 import java.io.IOException;
@@ -22,29 +20,19 @@ import java.util.concurrent.Executors;
  * 公司： Usho Network Tech. Co., Ltd&lt;br&gt;
  */
 public class ImageLoader {
-    LruCache<String, Bitmap> lruCache;
+    //    LruCache<String, Bitmap> lruCache;
     //线程池  线程数量为CPU数量
     ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    ImageCache imageCache = new ImageCache();
 
-    public ImageLoader() {
-        initImageCache();
-    }
 
-    private void initImageCache() {
-        int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        Log.i("TAGTAG", "maxMemory---" + maxMemory);
-        int cacheSize = maxMemory / 4;
-        lruCache = new LruCache<String, Bitmap>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap value) {
-                int size = value.getByteCount() / 1024;
-                Log.i("TAGTAG", "size---" + size);
-                return size;
-            }
-        };
-    }
 
     public void displayImage(final String url, final ImageView imageView) {
+        Bitmap bitmap = imageCache.get(url);
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+            return;
+        }
         imageView.setTag(url);
         executorService.submit(new Runnable() {
             @Override
@@ -61,7 +49,7 @@ public class ImageLoader {
                         }
                     });
                 }
-                lruCache.put(url, bitmap);
+                imageCache.put(url, bitmap);
             }
         });
     }
@@ -79,6 +67,7 @@ public class ImageLoader {
                 InputStream inputStream = connection.getInputStream();
                 bitmap = BitmapFactory.decodeStream(inputStream);
             }
+            connection.disconnect();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
