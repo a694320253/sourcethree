@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':rain_emoje'
 rootProject.name='My Application'
