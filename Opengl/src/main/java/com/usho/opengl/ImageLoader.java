@@ -24,12 +24,26 @@ public class ImageLoader {
     //线程池  线程数量为CPU数量
     ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     ImageCache imageCache = new ImageCache();
-
-
+    boolean isUseDisCache=false;
+    boolean isUseDoubleCache=false;
+    DoubleCache doubleCache=new DoubleCache();
+    DiskCache diskCache=new DiskCache();
 
     public void displayImage(final String url, final ImageView imageView) {
-        Bitmap bitmap = imageCache.get(url);
-        if (bitmap != null) {
+//        Bitmap bitmap = imageCache.get(url);
+//        if (bitmap != null) {
+//            imageView.setImageBitmap(bitmap);
+//            return;
+//        }
+        Bitmap bitmap=null;
+        if (isUseDoubleCache){
+            bitmap=doubleCache.get(url);
+        }else if (isUseDisCache){
+            bitmap=diskCache.get(url);
+        }else {
+            bitmap=imageCache.get(url);
+        }
+        if (bitmap!=null){
             imageView.setImageBitmap(bitmap);
             return;
         }
@@ -52,6 +66,22 @@ public class ImageLoader {
                 imageCache.put(url, bitmap);
             }
         });
+    }
+
+    public boolean isUseDisCache() {
+        return isUseDisCache;
+    }
+
+    public void setUseDisCache(boolean useDisCache) {
+        isUseDisCache = useDisCache;
+    }
+
+    public boolean isUseDoubleCache() {
+        return isUseDoubleCache;
+    }
+
+    public void setUseDoubleCache(boolean useDoubleCache) {
+        isUseDoubleCache = useDoubleCache;
     }
 
     private Bitmap downLoadImage(String imageurl) {
