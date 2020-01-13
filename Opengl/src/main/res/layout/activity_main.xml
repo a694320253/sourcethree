@@ -16,4 +16,19 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
+    <ImageView
+        android:id="@+id/tttt"
+        android:layout_width="190dp"
+        android:layout_height="125dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/tttt"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="暂无提现记录"
+        android:textSize="15sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#999999"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/tttt"/>
 </RelativeLayout>
