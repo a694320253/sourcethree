@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/tttt">
+
+    <target android:name="a1" android:animation="@animator/hahah" />
+    <target android:name="a2" android:animation="@animator/hahah" />
+    <target android:name="a3" android:animation="@animator/hahah" />
+    <target android:name="a4" android:animation="@animator/hahah" />
+    <target android:name="a5" android:animation="@animator/hahah" />
+    <target android:name="a6" android:animation="@animator/hahah" />
+    <target android:name="a7" android:animation="@animator/hahah" />
+    <target android:name="a8" android:animation="@animator/hahah" />
+    <target android:name="a9" android:animation="@animator/hahah" />
+    <target android:name="a10" android:animation="@animator/hahah" />
+    <target android:name="a11" android:animation="@animator/hahah" />
+    <target android:name="a12" android:animation="@animator/hahah" />
+    <target android:name="a13" android:animation="@animator/hahah" />
+    <target android:name="a14" android:animation="@animator/hahah" />
+
+</animated-vector>
