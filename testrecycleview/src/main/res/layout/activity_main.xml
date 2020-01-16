@@ -7,9 +7,15 @@
     tools:context=".MainActivity">
 
     <!--<androidx.recyclerview.widget.RecyclerView-->
-        <!--android:id="@+id/recycleView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+    <!--android:id="@+id/recycleView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
 
     <!--</androidx.recyclerview.widget.RecyclerView>-->
+    <!--<com.usho.testrecycleview.BasisView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+    <com.usho.testrecycleview.RectPoaintView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>
