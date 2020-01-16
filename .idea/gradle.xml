@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/Opengl" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/rain_emoje" />
+            <option value="$PROJECT_DIR$/testrecycleview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,2 +1,2 @@
-include ':app', ':rain_emoje', ':Opengl'
+include ':app', ':rain_emoje', ':Opengl', ':testrecycleview'
 rootProject.name='My Application'
