@@ -15,7 +15,10 @@
     <!--<com.usho.testrecycleview.BasisView-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent" />-->
-    <com.usho.testrecycleview.RectPoaintView
+    <!--<com.usho.testrecycleview.RectPoaintView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+    <com.usho.testrecycleview.SpiderView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>
